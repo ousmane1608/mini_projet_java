@@ -22,20 +22,20 @@ public class Monde
         this.nbC=nbc;
         this.Mat=new boolean[nbL][nbC];
     }
-         public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < nbL; i++) {
-            for (int j = 0; j < nbC; j++) {
-                if (Mat[i][j]==true) {
-                    sb.append("o"); // Papier gras présent
-                } else {
-                    sb.append("."); // Aucun papier gras
+        public String toString(){
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < nbL; i++) {
+                for (int j = 0; j < nbC; j++){
+                    if (Mat[i][j]==true) {
+                        sb.append("o"); // Papier gras présent
+                    } else{
+                        sb.append("."); // Aucun papier gras
+                    }
                 }
-            }
             sb.append("\n"); // Passage à la ligne
+            }
+            return sb.toString();
         }
-        return sb.toString();
-    }
 // – metPapierGras(inti;	intj) :	met	un	papier	gras	dans	la	case	(i;	j).
 // – prendPapierGras(inti;	intj) :	enlève	le	papier	gras	de	la	case	(i;	j).
 // – estSale(inti;	intj)	:	teste	si	la	case	(i,	j)	a	un	papier	gras.
@@ -44,12 +44,12 @@ public class Monde
         Mat[i][j]=true;
     }
     public void prendrePapierGras(int i,int j){
-        if(estSale(i, j)){
+        if(estSale(i,j)){
             Mat[i][j]=false;
         }
         
     }
-    private boolean estSale(int i,int j){
+    public boolean estSale(int i,int j){
         boolean response=false;
         if(Mat[i][j]==true){
             response=true;

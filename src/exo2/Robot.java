@@ -4,12 +4,18 @@ import java.util.Random;
 abstract public class Robot{
     protected int posx;
     protected int posy;
-    Monde m;
+    protected Monde m;
    
     public Robot(int x,int y,Monde	m){
-        this.posx=x;
-        this.posy=y;
-        this.m=m;
+        if (x<m.getNbL() && y<m.getNbC()) {
+            this.posx=x;
+            this.posy=y;
+            this.m=m;
+        }
+        else{
+            System.out.println("**impossible de sortir de ce monde!! **");
+        }
+        
     }
     public Robot(Monde m){
         this((new Random().nextInt(m.getNbL())), new Random().nextInt(m.getNbC()), m);

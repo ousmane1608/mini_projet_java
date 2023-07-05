@@ -5,26 +5,32 @@ import monde.Monde;
 
 public class PollueurSauteur extends RobotPollueur {
     private int deltax;
-    public PollueurSauteur(int x, int y, Monde m,int deltax) {
-        super(x, y, m);
+    public PollueurSauteur( Monde m,int colDepart,int deltax) {
+        super(0, colDepart, m);
         this.deltax=deltax;
         //TODO Auto-generated constructor stub
     }
     @Override
     public void parcourir() {
-        while(getPosx()<getM().getNbL()-1){
-                if (getPosy()<getM().getNbC()-1) {
+        for (int i = 0; i < m.getNbL(); i++) {
+          if (i%2==0) {
+                if (posy<m.getNbC()) {
+                    vaEn(i, posy);
                     polluer();
-                    vaEn(getPosx()+1,getPosy()+deltax);
+                    posy+=deltax;
+                }
+            }
+           else {
+                if (posy<m.getNbC()) {
+                    vaEn(i, posy);
+                    polluer();
                 }
                 else{
-                    vaEn(getPosx(),0);
+                    posy=0;
+                    vaEn(i, posy);
+                    polluer();
                 }
-            
+            } 
         }
-        throw new UnsupportedOperationException("Unimplemented method 'parcourir'");
-    }
-
-    
-
+}
 }

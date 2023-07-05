@@ -4,7 +4,6 @@ import exo3.RobotPollueur;
 import monde.Monde;
 
 public class PollueurToutDroit extends RobotPollueur{
-     private int colDepart;
     public PollueurToutDroit(Monde m,int colDepart) {
         super(0, colDepart, m);
         //TODO Auto-generated constructor stub
@@ -16,13 +15,9 @@ public class PollueurToutDroit extends RobotPollueur{
     @Override
     public void parcourir(){
         int i;
-        for(i=0;i<getM().getNbL();i++){
-            vaEn(i, colDepart);
+        for(i=0;i<m.getNbL();i++){
+            vaEn(i,posy);
             polluer();    
         }
     }
-
-  
-    
-    
 }

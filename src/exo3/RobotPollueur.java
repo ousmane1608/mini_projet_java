@@ -12,6 +12,6 @@ abstract public class RobotPollueur extends Robot {
         super(m);
     }
     public void polluer(){
-        getM().metPapierGras(getPosy(), getPosx());
+        m.metPapierGras(posx, posy);
     }    
 }
