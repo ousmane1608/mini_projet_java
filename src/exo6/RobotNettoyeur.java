@@ -3,19 +3,36 @@ package exo6;
 import exo2.Robot;
 import monde.Monde;
 
+/**
+ * La classe "RobotNettoyeur" est une sous-classe de "Robot" et représente un robot nettoyeur dans un monde donné.
+ */
 public class RobotNettoyeur extends Robot {
-    public RobotNettoyeur(Monde m){
-        super(0, 0,m);
+
+    /**
+     * Constructeur de la classe "RobotNettoyeur".
+     *
+     * @param m Référence vers le monde dans lequel se trouve le robot nettoyeur
+     */
+    public RobotNettoyeur(Monde m) {
+        super(0, 0, m);
     }
-    public void nettoyer(){
-        m.prendrePapierGras(posx,posy);
+
+    /**
+     * Méthode qui permet au robot nettoyeur de nettoyer la case sur laquelle il se trouve en enlevant le papier gras.
+     */
+    public void nettoyer() {
+        m.prendrePapierGras(posx, posy);
     }
+
+    /**
+     * Méthode qui représente le parcours du robot nettoyeur. Le robot parcourt les lignes du monde en nettoyant chaque case dans un mouvement de va-et-vient.
+     */
     @Override
-    public void  parcourir() {
-         for (int i = 0; i < m.getNbL(); i++) {
+    public void parcourir() {
+        for (int i = 0; i < m.getNbL(); i++) {
             if (i % 2 == 0) {
                 // Parcours de gauche à droite
-                for (int j = 0; j <m.getNbC(); j++) {
+                for (int j = 0; j < m.getNbC(); j++) {
                     vaEn(i, j);
                     nettoyer();
                 }
