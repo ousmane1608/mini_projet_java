@@ -21,10 +21,10 @@ public class NettoyeurDistrait extends RobotNettoyeur {
      */
     public void parcourir() {
         int compteur = 0;
-        for (int i = 0; i < m.getNbL(); i++) {
-            if (i % 2 == 0) {
+        for (int i = 1; i <= m.getNbL(); i++) {
+            if ((i-1) % 2 == 0) {
                 // Parcours de gauche à droite
-                for (int j = 0; j < m.getNbC(); j++) {
+                for (int j = 1; j<= m.getNbC(); j++) {
                     if (m.estSale(i, j)) {
                         compteur += 1;
                         if (compteur % 2 != 0) {
@@ -35,7 +35,7 @@ public class NettoyeurDistrait extends RobotNettoyeur {
                 }
             } else {
                 // Parcours de droite à gauche
-                for (int j = m.getNbC() - 1; j >= 0; j--) {
+                for (int j = m.getNbC(); j >= 1; j--) {
                     if (m.estSale(i, j)) {
                         compteur += 1;
                         if (compteur % 2 != 0) {

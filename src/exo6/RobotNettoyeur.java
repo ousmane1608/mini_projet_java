@@ -14,7 +14,7 @@ public class RobotNettoyeur extends Robot {
      * @param m Référence vers le monde dans lequel se trouve le robot nettoyeur
      */
     public RobotNettoyeur(Monde m) {
-        super(0, 0, m);
+        super(1, 1, m);
     }
 
     /**
@@ -29,16 +29,16 @@ public class RobotNettoyeur extends Robot {
      */
     @Override
     public void parcourir() {
-        for (int i = 0; i < m.getNbL(); i++) {
-            if (i % 2 == 0) {
+        for (int i = 1; i <= m.getNbL(); i++) {
+            if ((i-1) % 2 == 0) {
                 // Parcours de gauche à droite
-                for (int j = 0; j < m.getNbC(); j++) {
+                for (int j = 1; j <= m.getNbC(); j++) {
                     vaEn(i, j);
                     nettoyer();
                 }
             } else {
                 // Parcours de droite à gauche
-                for (int j = m.getNbC() - 1; j >= 0; j--) {
+                for (int j = m.getNbC() ; j >= 1; j--) {
                     vaEn(i, j);
                     nettoyer();
                 }

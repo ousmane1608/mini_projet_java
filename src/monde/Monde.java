@@ -62,7 +62,7 @@ public class Monde {
      * @param j Indice de colonne de la case
      */
     public void metPapierGras(int i, int j) {
-        Mat[i][j] = true;
+        Mat[i-1][j-1] = true;
     }
 
     /**
@@ -73,7 +73,7 @@ public class Monde {
      */
     public void prendrePapierGras(int i, int j) {
         if (estSale(i, j)) {
-            Mat[i][j] = false;
+            Mat[i-1][j-1] = false;
         }
     }
 
@@ -85,11 +85,7 @@ public class Monde {
      * @return true si la case est sale, false sinon
      */
     public boolean estSale(int i, int j) {
-        boolean response = false;
-        if (Mat[i][j] == true) {
-            response = true;
-        }
-        return response;
+        return Mat[i-1][j-1];
     }
 
     /**
@@ -103,7 +99,7 @@ public class Monde {
         int nbPapierGras = 0;
         for (int i = 0; i < nbL; i++) {
             for (int j = 0; j < nbC; j++) {
-                if (estSale(i, j)) {
+                if (estSale(i+1, j+1)) {
                     nbPapierGras++;
                 }
             }

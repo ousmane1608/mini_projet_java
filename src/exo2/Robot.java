@@ -19,12 +19,12 @@ abstract public class Robot {
      * @param m Référence vers le monde dans lequel se trouve le robot
      */
     public Robot(int x, int y, Monde m) {
-        if (x < m.getNbL() && y < m.getNbC()) {
+        if (x >= 1 && x <= m.getNbL() && y >= 1 && y <= m.getNbC()) {
             this.posx = x;
             this.posy = y;
             this.m = m;
         } else {
-            System.out.println("** Impossible de sortir de ce monde !! **");
+            System.out.println("** Impossible de positionner le robot en dehors du monde !! **");
         }
     }
 
@@ -44,7 +44,7 @@ abstract public class Robot {
      * @param j Nouvelle position en ordonnée du robot
      */
     public void vaEn(int i, int j) {
-        if (i < m.getNbL() && j < m.getNbC()) {
+        if (i >= 1 && i <= m.getNbL() && j >= 1 && j <= m.getNbC()) {
             posx = i;
             posy = j;
         } else {

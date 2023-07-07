@@ -15,7 +15,7 @@ public class PollueurToutDroit extends RobotPollueur {
      * @param colDepart  Colonne de départ du robot pollueur
      */
     public PollueurToutDroit(Monde m, int colDepart) {
-        super(0, colDepart, m);
+        super(1, colDepart, m);
     }
 
     /**
@@ -23,7 +23,7 @@ public class PollueurToutDroit extends RobotPollueur {
      */
     @Override
     public void parcourir() {
-        for (int i = 0; i < m.getNbL(); i++) {
+        for (int i = 1; i <= m.getNbL(); i++) {
             vaEn(i, posy);
             polluer();
         }

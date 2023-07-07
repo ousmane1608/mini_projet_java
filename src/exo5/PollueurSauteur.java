@@ -18,7 +18,7 @@ public class PollueurSauteur extends RobotPollueur {
      * @param deltax     Variation de position en abscisse lors du saut
      */
     public PollueurSauteur(Monde m, int colDepart, int deltax) {
-        super(0, colDepart, m);
+        super(1, colDepart, m);
         this.deltax = deltax;
     }
 
@@ -27,8 +27,8 @@ public class PollueurSauteur extends RobotPollueur {
      */
     @Override
     public void parcourir() {
-        for (int i = 0; i < m.getNbL(); i++) {
-            if (i % 2 == 0) {
+        for (int i = 1; i <= m.getNbL(); i++) {
+            if ((i-1) % 2 == 0) {
                 if (posy < m.getNbC()) {
                     vaEn(i, posy);
                     polluer();
@@ -39,7 +39,7 @@ public class PollueurSauteur extends RobotPollueur {
                     vaEn(i, posy);
                     polluer();
                 } else {
-                    posy = 0;
+                    posy = 1;
                     vaEn(i, posy);
                     polluer();
                 }
